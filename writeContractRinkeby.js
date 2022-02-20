@@ -11,7 +11,7 @@ const abi = [
     'function setAge(uint _age) external'
 ]
 
-const pvtKey = "ac416838cabab81a0032ee5351aa600ec2c39e33a9aa17b496b8b0642cfed05f";
+const pvtKey = "add here";
 
 const wallet = new ethers.Wallet(pvtKey, provider)
 var contract = new ethers.Contract(contractAddress, abi, wallet)
