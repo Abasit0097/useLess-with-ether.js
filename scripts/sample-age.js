@@ -14,12 +14,27 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  const Greeter = await hre.ethers.getContractFactory("Greeter");
-  const greeter = await Greeter.deploy();
+  const Age = await hre.ethers.getContractFactory("ages");
+  //const age = await Age.deploy();
+  const age = await Age.attach('0x5FbDB2315678afecb367f032d93F642f64180aa3');
 
-  await greeter.deployed();
 
-  console.log("Greeter deployed to:", greeter.address);
+    const value = await age.getAge()
+    const set = await age.setAge(34)
+    const value2 = await age.getAge()
+
+    console.log("age =", value.toString())
+    console.log("age =", value2.toString())
+
+
+
+  //await age.deployed();
+
+  //console.log("Ages deployed to:", age.address);
+
+
+
+
 }
 
 // We recommend this pattern to be able to use async/await everywhere
